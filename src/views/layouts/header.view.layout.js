@@ -12,6 +12,10 @@ function Header()
 		{
 			title: "STATISTICS",
 			link: "/statistics"
+		},
+		{
+			title: "LOGIN",
+			link: "/login"
 		}
 	];
 

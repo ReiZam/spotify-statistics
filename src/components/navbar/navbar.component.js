@@ -16,12 +16,10 @@ class Navbar extends React.Component
 			<nav className="relative py-6 bg-black">
 				<div className="container md:px-16 px-8 mx-auto md:flex md:items-center">
 					<div className="flex justify-between items-center">
-						<NavLink className="flex justify-center items-center space-x-2" to="/">
+						<NavLink className="flex justify-center items-center" to="/">
 							<img className="object-scale-down h-10 w-10" src={require('./spotify_logo.png')} />
-							<div className="space-x-1">
-								<a className="text-xl font-bold text-white">Spotify</a>
-								<a className="text-sm font-thin text-white mt-1">stats</a>
-							</div>
+							<p className="text-xl font-bold text-white ml-2">Spotify</p>
+							<p className="text-sm font-thin text-white mt-1 ml-1">stats</p>
 						</NavLink>
 						<button data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-green-600 focus:outline-none focus:ring-1 focus:ring-gray-200" aria-controls="mobile-menu" aria-expanded="false">
 							<span className="sr-only">Open main menu</span>
@@ -35,9 +33,7 @@ class Navbar extends React.Component
 								elements.map((value, index) => {
 									return (
 										<li key={index}>
-											<NavLink to={value.link}>
-												<a className="text-xl font-thin text-white hover:text-green-600">{value.title}</a>
-											</NavLink>
+											<NavLink className="text-xl font-thin text-white hover:text-green-600" to={value.link}>{value.title}</NavLink>
 										</li>
 									)
 								})}

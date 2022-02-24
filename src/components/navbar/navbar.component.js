@@ -10,7 +10,7 @@ class Navbar extends React.Component
 
 	render()
 	{
-		const elements = this.props.elements;
+		const {elements} = this.props;
 		
 		return (
 			<nav className="relative py-6 bg-black">
@@ -30,10 +30,10 @@ class Navbar extends React.Component
 					<div id="mobile-menu" className="hidden md:flex md:flex-row flex-col md:ml-auto md:mt-0 mt-4">
 						<ul className="flex md:flex-row md:space-x-8 flex-col w-full">
 							{
-								elements.map((value, index) => {
+								elements && elements.map((value, index) => {
 									return (
 										<li key={index}>
-											<NavLink className="text-xl font-thin text-white hover:text-green-600" to={value.link}>{value.title}</NavLink>
+											<NavLink className="text-xl font-thin text-white hover:text-spotify_green_primary" to={value.link}>{value.title}</NavLink>
 										</li>
 									)
 								})}

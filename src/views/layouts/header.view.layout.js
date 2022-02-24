@@ -6,12 +6,16 @@ function Header()
 {
 	const links = [
 		{
-			title: "HOME",
-			link: "/home"
+			title: "TOP TRACKS",
+			link: "/stats/tracks"
 		},
 		{
-			title: "STATISTICS",
-			link: "/statistics"
+			title: "TOP GENRES",
+			link: "/stats/genres"
+		},
+		{
+			title: "TOP ARTISTS",
+			link: "/stats/artists"
 		},
 		{
 			title: "LOGIN",

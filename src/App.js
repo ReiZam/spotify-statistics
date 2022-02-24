@@ -11,14 +11,14 @@ import Footer from './views/layouts/footer.view.layout.js';
 function App()
 {
 	return (
-		<>
+		<div className="bg-gray-100">
 			<Header/>
 			<Routes>
-				<Route index element={<Home/>}/>
+				<Route index path="/" element={<Home/>}/>
 				<Route path="*" element={<NotFound/>}/>
 			</Routes>
 			<Footer/>
-		</>
+		</div>
   	);
 }
 

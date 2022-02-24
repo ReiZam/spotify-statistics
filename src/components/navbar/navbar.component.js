@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 class Navbar extends React.Component
 {
@@ -15,13 +16,13 @@ class Navbar extends React.Component
 			<nav className="relative py-6 bg-black">
 				<div className="container md:px-16 px-8 mx-auto md:flex md:items-center">
 					<div className="flex justify-between items-center">
-						<a className="flex justify-center items-center space-x-2" href="/">
+						<NavLink className="flex justify-center items-center space-x-2" to="/">
 							<img className="object-scale-down h-10 w-10" src={require('./spotify_logo.png')} />
 							<div className="space-x-1">
 								<a className="text-xl font-bold text-white">Spotify</a>
 								<a className="text-sm font-thin text-white mt-1">stats</a>
 							</div>
-						</a>
+						</NavLink>
 						<button data-collapse-toggle="mobile-menu" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-green-600 focus:outline-none focus:ring-1 focus:ring-gray-200" aria-controls="mobile-menu" aria-expanded="false">
 							<span className="sr-only">Open main menu</span>
 							<svg className="w-6 h-6" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
@@ -34,7 +35,9 @@ class Navbar extends React.Component
 								elements.map((value, index) => {
 									return (
 										<li key={index}>
-											<a className="text-xl font-thin text-white hover:text-green-600" href={value.link}>{value.title}</a>
+											<NavLink to={value.link}>
+												<a className="text-xl font-thin text-white hover:text-green-600">{value.title}</a>
+											</NavLink>
 										</li>
 									)
 								})}

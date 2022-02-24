@@ -28,7 +28,7 @@ class Navbar extends React.Component
 						</button>
 					</div>
 					<div id="mobile-menu" className="hidden md:flex md:flex-row flex-col md:ml-auto md:mt-0 mt-4">
-						<ul className="flex md:flex-row md:space-x-8 flex-col w-full">
+						<ul className="flex md:flex-row md:space-x-4 lg:space-x-8 flex-col w-full">
 							{
 								elements && elements.map((value, index) => {
 									return (

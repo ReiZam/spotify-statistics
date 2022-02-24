@@ -15,6 +15,13 @@ function Home()
 					<p className="font-medium py-4 text-spotify_text_color">Please sign in with your Spotify account to view your stats</p>
 					<button className="rounded-full tracking-widest transition-colors active:bg-spotify_green_primary_alternative text-sm bg-spotify_green_primary_alternative font-bold text-white h-12 pl-6 pr-6 hover:bg-spotify_green_secondary">LOGIN WITH SPOTIFY</button>
 				</div>
+				<div className="flex w-full justify-around mt-12">
+					<img className="md:h-16 h-8" src={require('./music.png')}/>
+					<img className="md:h-16 h-8" src={require('./singer.png')}/>
+					<img className="md:h-16 h-8" src={require('./favorite.png')}/>
+				</div>
+				<div className="mt-4">
+					<HomeFadeTitles titles={["Explore your favorites songs", "Get a glimpse of your favorite artists", "Know your favorite music genres"]} description="You are able to see a classement of your most listened songs."/>				</div>
 				<div className="flex w-full justify-around mt-8">
 					<button className="rounded-full tracking-widest transition-colors text-sm bg-spotify_purple active:bg-spotify_purple hover:bg-spotify_purple/75 font-bold text-white h-12 pl-6 pr-6">
 						<Link to="/stats/tracks">TOP TRACKS</Link>
@@ -26,7 +33,6 @@ function Home()
 						<Link to="/stats/genres">TOP GENRES</Link>
 					</button>
 				</div>
-				<HomeFadeTitles className="relative mt-4" titles={["Explore your favorites songs", "Get a glimpse of your favorite artists", "Know your favorite music genres"]} description="You are able to see a classement of your most listened songs."/>
 			</div>
 		</div>
 	);

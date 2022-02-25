@@ -17,7 +17,7 @@ function Callback()
 	let auth = useAuth();
 
 	useEffect(() => {
-		if (!query.has("error") && query.has("code") && query.has("state"))
+		if (query.has("code"))
 		{
 			requestSpotifyAccessToken(query.get("code")).then((payload) => {
 				const tokenObj = {
@@ -39,9 +39,19 @@ function Callback()
 	if (auth.user)
 		return (<Navigate to="/" replace/>);
 	return (
-		<div>
-			<h1>Code: {query.get("code")}</h1>
-			<h1>State: {query.get("state")}</h1>
+		<div className="relative h-screen">
+			<div className="container mx-auto lg:px-64 mt-8">
+				<div className="grid place-items-center shadow mx-2 rounded-3xl bg-white mx-auto py-8">
+					<p className="text-4xl font-bold text-spotify_text_color antialiased">{query.has("error") ? "An error has occurred..." : "Connecting..."}</p>
+					{
+						query.has("error") &&
+						<>
+							<p className="text-xl font-medium py-2 text-red-500">{query.get("error")}</p>
+							<p className="text-sm font-medium py-2 text-spotify_text_color">Please try to log in again.</p>
+						</>
+					}
+				</div>
+			</div>
 		</div>
 	);
 }

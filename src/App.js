@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, } from "react-router";
-import { connect } from "react-redux";
 
 // VIEWS
 import Home from './views/home/home.view.js';
@@ -8,39 +7,27 @@ import Callback from './views/callback/callback.view.js';
 // LAYOUTS
 import Header from './views/layouts/header.view.layout.js';
 import Footer from './views/layouts/footer.view.layout.js';
-import { generateAuthorizationContentSpotify } from "./services/api/spotify.api.js";
 // SERVICES
+import { generateAuthorizationContentSpotify } from "./services/api/spotify.api.js";
+// PROVIDER
+import { RequireAuth, AuthProvider } from './providers/auth.provider.js';
 
-class App extends React.Component
+function App()
 {
-	constructor(props)
-	{
-		super(props);
+	const [authorization_content, setAuthorizationContent] = useState(null);
 
-		this.state = {authorization_content: ''};
-	}
-
-	_init()
-	{
+	useEffect(() => {
 		generateAuthorizationContentSpotify().then((result) => {
-			this.setState({authorization_content: result});
+			setAuthorizationContent(result);
 		});
-	}
+	}, []);
 
-	componentDidMount()
-	{
-		this._init();
-	}
-	
-	render()
-	{
-		var {authorization_content} = this.state;
-		
-		if (!authorization_content)
-			return (<h1>Loading...</h1>);
-		
-		return (
-			<div className="bg-gray-100 h-screen w-screen">
+	if (!authorization_content)
+		return (<h1>Loading...</h1>);
+
+	return (
+		<div className="bg-gray-100 h-screen w-screen">
+			<AuthProvider>
 				<Header authorization_content={authorization_content}/>
 				<Routes>
 					<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
@@ -48,9 +35,9 @@ class App extends React.Component
 					{/* <Route path="*" element={<NotFound/>}/> */}
 				</Routes>
 				<Footer/>
-			</div>
-		);
-	}
+			</AuthProvider>
+		</div>
+	);
 }
 
 

@@ -1,57 +1,55 @@
-// COMPONENTS
 import React from 'react';
-import { connect } from 'react-redux';
+
+// COMPONENTS
 import Navbar from '../../components/navbar/navbar.component.js';
-import { generateAuthorizationContentSpotify } from '../../services/api/spotify.api.js';
+// PROVIDER
+import {useAuth} from '../../providers/auth.provider.js';
 
-const mapStateToProps = state => ({...state});
-
-const mapDispatchToProps = dispatch => ({
-});
-
-class Header extends React.Component
+function Header(props)
 {
-	constructor(props)
-	{
-		super(props);
-	}
+	let auth = useAuth();
+	const {authorization_content} = props;
 
-	render()
-	{
-		const {authorization_content} = this.props;
-
-		const links = [
-			{
-				title: "TOP TRACKS",
-				link: "/stats/tracks",
-				external: false
-			},
-			{
-				title: "TOP GENRES",
-				link: "/stats/genres",
-				external: false
-			},
-			{
-				title: "TOP ARTISTS",
-				link: "/stats/artists",
-				external: false
-			},
-			{
-				title: "LOGIN",
-				link: authorization_content.authorize_link,
-				external: true,
-				onClick: () => {
-					window.localStorage.setItem("code_verifier", authorization_content.code_verifier);
-				}
+	const links = [
+		{
+			title: "TOP TRACKS",
+			link: "/stats/tracks",
+			external: false
+		},
+		{
+			title: "TOP GENRES",
+			link: "/stats/genres",
+			external: false
+		},
+		{
+			title: "TOP ARTISTS",
+			link: "/stats/artists",
+			external: false
+		},
+		!auth.user  ? {
+			title: "LOGIN",
+			link: authorization_content.authorize_link,
+			external: true,
+			onClick: () => {
+				window.localStorage.setItem("code_verifier", authorization_content.code_verifier);
 			}
-		];
+		} : {
+			title: "LOGOUT",
+			link: "/",
+			external: false,
+			onClick: () => {
+				auth.logout(() => {
+					console.log("logout");
+				})
+			}
+		}
+	];
 
-		return (
-			<div className="header">
-				<Navbar elements={links}/>
-			</div>
-		);
-	}
+	return (
+		<div className="header">
+			<Navbar elements={links}/>
+		</div>
+	);
 }
 
 export default Header;

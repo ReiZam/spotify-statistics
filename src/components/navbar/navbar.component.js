@@ -11,7 +11,7 @@ function Navbar(props)
 			<div className="container md:px-16 px-8 mx-auto md:flex md:items-center">
 				<div className="flex justify-between items-center">
 					<NavLink className="flex justify-center items-center" to="/">
-						<img className="object-scale-down h-10 w-10" src={require('./spotify_logo.png')} />
+						<img className="object-scale-down h-10 w-10" src={require('../assets/spotify_logo.png')} />
 						<p className="text-xl font-bold text-white ml-2">Spotify</p>
 						<p className="text-sm font-thin text-white mt-1 ml-1">stats</p>
 					</NavLink>

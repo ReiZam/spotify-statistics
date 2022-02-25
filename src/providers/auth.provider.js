@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router";
+import { Navigate } from "react-router";
 
 let AuthContext = React.createContext(null);
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, } from "react-router";
 
-// VIEWS
-import Home from './views/home/home.view.js';
-import Callback from './views/callback/callback.view.js';
 // LAYOUTS
-import Header from './views/layouts/header.view.layout.js';
-import Footer from './views/layouts/footer.view.layout.js';
+import Header from './layouts/header.layout.js';
+import Footer from './layouts/footer.layout.js';
+// VIEWS
+import Home from './views/home.view.js';
+import Callback from './views/callback.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/api/spotify.api.js";
 // PROVIDER

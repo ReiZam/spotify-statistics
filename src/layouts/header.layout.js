@@ -1,9 +1,9 @@
 import React from 'react';
 
 // COMPONENTS
-import Navbar from '../../components/navbar/navbar.component.js';
+import Navbar from '../components/navbar/navbar.component.js';
 // PROVIDER
-import {useAuth} from '../../providers/auth.provider.js';
+import {useAuth} from '../providers/auth.provider.js';
 
 function Header(props)
 {

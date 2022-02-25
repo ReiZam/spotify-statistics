@@ -2,8 +2,10 @@
 import { Link } from 'react-router-dom';
 import HomeFadeTitles from '../../components/home/homeFadeTitles.component.js';
 
-function Home()
+function Home(props)
 {
+	const {authorization_content} = props;
+
 	return (
 		<div className="relative h-screen">
 			<div className="container mx-auto lg:px-64 mt-8">
@@ -13,7 +15,11 @@ function Home()
 						<p className="text-lg font-thin mt-2.5 text-spotify_text_color antialiased">stats</p>
 					</div>
 					<p className="font-medium py-4 text-spotify_text_color">Please sign in with your Spotify account to view your stats</p>
-					<button className="rounded-full tracking-widest transition-colors active:bg-spotify_green_primary_alternative text-sm bg-spotify_green_primary_alternative font-bold text-white h-12 pl-6 pr-6 hover:bg-spotify_green_secondary">LOGIN WITH SPOTIFY</button>
+					<a href={authorization_content.authorize_link}  onClick={() => {
+							window.localStorage.setItem("code_verifier", authorization_content.code_verifier);
+					}}>
+						<button className="rounded-full tracking-widest transition-colors active:bg-spotify_green_primary_alternative text-sm bg-spotify_green_primary_alternative font-bold text-white h-12 pl-6 pr-6 hover:bg-spotify_green_secondary">LOGIN WITH SPOTIFY</button>
+					</a>
 				</div>
 				<div className="flex w-full justify-around mt-12">
 					<img className="md:h-16 h-8" src={require('./music.png')}/>

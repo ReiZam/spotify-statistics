@@ -33,7 +33,10 @@ class Navbar extends React.Component
 								elements && elements.map((value, index) => {
 									return (
 										<li key={index}>
-											<NavLink className="text-xl font-thin text-white hover:text-spotify_green_primary" to={value.link}>{value.title}</NavLink>
+											{
+												!value.external ? <NavLink className="text-xl font-thin text-white hover:text-spotify_green_primary" to={value.link} onClick={() => { if (value.onClick) value.onClick();}}>{value.title}</NavLink>
+												: <a onClick={() => { if (value.onClick) value.onClick();}} className="text-xl font-thin text-white hover:text-spotify_green_primary" href={value.link}>{value.title}</a>
+											}
 										</li>
 									)
 								})}

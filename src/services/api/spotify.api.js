@@ -11,7 +11,7 @@ const SPOTIFY_API_URI = "https://api.spotify.com/v1";
 async function generateAuthorizationContentSpotify()
 {
 	var state = generateRandomString(16);
-	var scope = 'user-read-private user-read-email';
+	var scope = 'user-read-private user-read-email user-top-read';
 	var codeVerifier = generateRandomString(56);
 	const codeChallenge = await generateCodeChallenge(codeVerifier);
 
@@ -85,7 +85,8 @@ async function get(url, access_token)
 
 const SpotifyAgent = 
 {
-	current: (access_token) => get("/me", access_token)
+	current: (access_token) => get("/me", access_token),
+	top: (access_token, top_item, query) => get("/me/top/" + top_item + "/" + query, access_token)
 };
 
 

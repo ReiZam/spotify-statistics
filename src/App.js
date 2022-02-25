@@ -7,6 +7,7 @@ import Footer from './layouts/footer.layout.js';
 // VIEWS
 import Home from './views/home.view.js';
 import Callback from './views/callback.view.js';
+import TopTracks from './views/top/topTracks.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/api/spotify.api.js";
 // PROVIDER
@@ -29,15 +30,18 @@ function App()
 
 	return (
 		<div className="bg-gray-100 h-screen">
-			<AuthProvider>
-				<Header authorization_content={authorization_content}/>
-				<Routes>
-					<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
-					<Route path="/callback" element={<Callback/>}/>
-					{/* <Route path="*" element={<NotFound/>}/> */}
-				</Routes>
-				<Footer/>
-			</AuthProvider>
+			<div className="bg-gray-100">
+				<AuthProvider>
+					<Header authorization_content={authorization_content}/>
+					<Routes>
+						<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
+						<Route path="/callback" element={<Callback/>}/>
+						<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
+						{/* <Route path="*" element={<NotFound/>}/> */}
+					</Routes>
+					<Footer/>
+				</AuthProvider>
+			</div>
 		</div>
 	);
 }

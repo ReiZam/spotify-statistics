@@ -13,7 +13,10 @@ module.exports = {
 			spotify_text_color: "#222326",
 			spotify_purple: "#af2896",
 			spotify_yellow: "#f59b23",
-			spotify_cyan: "#00a575"
+			spotify_cyan: "#00a575",
+			spotify_red: "#ff4632",
+			spotify_red_secondary: "#c23627",
+			spotify_red_active: "#a62d1f"
 		},
 		fontFamily: {
 			sans: ['Roboto', 'sans-serif']

@@ -9,9 +9,9 @@ function getLinks(auth, authorization_content)
 {
 	if (auth.user)
 	{
-		return ([{ title: "TOP TRACKS", link: "/stats/tracks", external: false },
-		{ title: "TOP GENRES", link: "/stats/genres", external: false },
-		{ title: "TOP ARTISTS", link: "/stats/artists", external: false },
+		return ([{ title: "TOP TRACKS", link: "/top/tracks", external: false },
+		{ title: "TOP GENRES", link: "/top/genres", external: false },
+		{ title: "TOP ARTISTS", link: "/top/artists", external: false },
 		{ title: "LOGOUT", link: "/", external: false,
 			onClick: () => {
 				auth.logout(() => {})

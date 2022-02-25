@@ -10,6 +10,7 @@ import Callback from './views/callback.view.js';
 import TopTracks from './views/top/topTracks.view.js';
 import TopGenres from "./views/top/topGenres.view.js";
 import TopArtists from './views/top/topArtists.view.js';
+import NotFound from './views/error/404.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/spotify.service.js";
 // PROVIDER
@@ -41,6 +42,7 @@ function App()
 							<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
 							<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
 							<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
+							<Route path="*" element={<NotFound/>}/>
 						</Routes>
 					</div>
 					<Footer/>

@@ -5,7 +5,7 @@ import { useAuth } from "../../providers/auth.provider.js";
 import { loadTop } from "../../services/utils/spotify.utils";
 // COMPONENTS
 import Spinner from "../../components/global/spinner.component.js";
-import TimeSelector from '../../components/global/timeSelector.component.js';
+import TimeSelector from '../../components/top/timeSelector.component.js';
 import TrackList from '../../components/tracks/trackList.component.js';
 
 function TopTracks()
@@ -23,7 +23,9 @@ function TopTracks()
 			<div className="flex m-8 justify-center">
 				<p className="text-3xl font-bold">TOP TRACKS</p>
 			</div>
-			<TimeSelector mode={mode} setMode={setMode} primaryColor="bg-spotify_red" secondaryColor="bg-spotify_red_secondary" activeColor="bg-spotify_red_active" />
+			<TimeSelector mode={mode} setMode={setMode}
+				defaultClassName="bg-spotify_red w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-12 pl-6 pr-6"
+				activeClassName="bg-spotify_red_secondary w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-12 pl-6 pr-6"/>
 			{!topTracks ?
 			<div className="flex mt-48 mb-32 justify-center">
 				<Spinner/>

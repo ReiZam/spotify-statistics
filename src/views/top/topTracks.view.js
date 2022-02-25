@@ -15,7 +15,8 @@ function TopTracks()
 
 	useEffect(() => {
 		loadTop(auth.user.access_token, mode, "tracks", setTopTracks);
-	}, []);
+	}, [mode]);
+
 
 	return (
 		<div className="relative container mx-auto lg:px-64 mt-8">
@@ -25,24 +26,15 @@ function TopTracks()
 			<div className="flex justify-around mx-4">
 				<button className={(mode == 0 ? "bg-spotify_red_secondary" : "bg-spotify_red") + " rounded-l-full w-full tracking-widest transition-colors text-sm active:bg-spotify_red_active hover:bg-spotify_red_secondary text-white h-12 pl-6 pr-6"} onClick={() => {
 					if (mode != 0)
-					{
 						setMode(0)
-						loadTop(auth.user.access_token, 0, "tracks", setTopTracks);
-					}	
 				}}>SINCE LAST MOUTH</button>
 				<button className={(mode == 1 ? "bg-spotify_red_secondary" : "bg-spotify_red") + " w-full tracking-widest transition-colors text-sm active:bg-spotify_red_active hover:bg-spotify_red_secondary text-white h-12 pl-6 pr-6"} onClick={() => {
 					if (mode != 1)
-					{
 						setMode(1)
-						loadTop(auth.user.access_token, 1, "tracks", setTopTracks);
-					}	
 				}}>SINCE 6 MOUTHS</button>
 				<button className={(mode == 2 ? "bg-spotify_red_secondary" : "bg-spotify_red") + " rounded-r-full w-full tracking-widest transition-colors text-sm active:bg-spotify_red_active hover:bg-spotify_red_secondary text-white h-12 pl-6 pr-6"} onClick={() => {
 					if (mode != 2)
-					{
 						setMode(2)
-						loadTop(auth.user.access_token, 2, "tracks", setTopTracks);
-					}	
 				}}>SINCE ALL TIME</button>
 			</div>
 			{!topTracks ?

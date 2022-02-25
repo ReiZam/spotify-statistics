@@ -2,8 +2,8 @@ const queryString = require('query-string');
 const axios = require('axios');
 const {generateRandomString, generateCodeChallenge} = require('../utils/string.utils.js');
 
-const CLIENT_ID = "faebf503fbac43f2afcfa2807b956815";
-const REDIRECT_URI = "http://localhost:3000/callback";
+const CLIENT_ID = process.env.CLIENT_ID;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 const AUTHORIZE_URI = "https://accounts.spotify.com/authorize?";
 const SPOTIFY_TOKEN_URI = "https://accounts.spotify.com/api/token"
 const SPOTIFY_API_URI = "https://api.spotify.com/v1";

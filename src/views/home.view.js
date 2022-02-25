@@ -22,7 +22,7 @@ function Home(props)
 			<div className="mt-4">
 				<HomeFadeTitles titles={["Explore your favorites songs", "Get a glimpse of your favorite artists", "Know your favorite music genres"]} description="You are able to see a classement of your most listened songs."/>
 			</div>
-			<div className="flex w-full justify-around mt-8">
+			<div className="flex w-full justify-around mt-8 mb-12">
 				<button className="rounded-full tracking-widest transition-colors text-sm bg-spotify_purple active:bg-spotify_purple hover:bg-spotify_purple/75 font-bold text-white h-12 pl-6 pr-6">
 					<Link to="/stats/tracks">TOP TRACKS</Link>
 				</button>

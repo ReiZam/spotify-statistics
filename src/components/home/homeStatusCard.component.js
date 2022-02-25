@@ -22,7 +22,7 @@ function HomeStatusCard()
 		<div className="grid place-items-center shadow rounded-3xl bg-white mx-4 py-8 h-56">
 			<div className="flex flex-row">
 				<p className="text-4xl font-bold text-spotify_text_color antialiased">Spotify</p>
-				<p className="text-lg font-thin mt-2.5 text-spotify_text_color antialiased">stats</p>
+				<p className="text-lg font-thin mt-2.5 text-spotify_text_color antialiased">statistics</p>
 			</div>
 			{!profile ? <Spinner/> :
 			<div className="text-center">

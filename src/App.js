@@ -31,22 +31,21 @@ function App()
 		return (<h1>Loading...</h1>);
 
 	return (
-		<div className="bg-gray-100 h-screen">
-			<div className="bg-gray-100">
+			<div className="bg-gray-100 flex flex-col h-screen justify-between">
 				<AuthProvider>
 					<Header authorization_content={authorization_content}/>
-					<Routes>
-						<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
-						<Route path="/callback" element={<Callback/>}/>
-						<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
-						<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
-						<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
-						{/* <Route path="*" element={<NotFound/>}/> */}
-					</Routes>
+					<div className="bg-gray-100 mb-auto">
+						<Routes>
+							<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
+							<Route path="/callback" element={<Callback/>}/>
+							<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
+							<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
+							<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
+						</Routes>
+					</div>
 					<Footer/>
 				</AuthProvider>
 			</div>
-		</div>
 	);
 }
 

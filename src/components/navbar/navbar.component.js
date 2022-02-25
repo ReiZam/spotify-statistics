@@ -13,7 +13,7 @@ function Navbar(props)
 					<NavLink className="flex justify-center items-center" to="/">
 						<img className="object-scale-down h-10 w-10" src={require('../assets/spotify_logo.png')} />
 						<p className="text-xl font-bold text-white ml-2">Spotify</p>
-						<p className="text-sm font-thin text-white mt-1 ml-1">stats</p>
+						<p className="text-sm font-thin text-white mt-1 ml-1">statistics</p>
 					</NavLink>
 					<button onClick={() => {setMobileMenuOpen(!mobileMenuOpen)}} type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-spotify_green_primary focus:outline-none focus:ring-1 focus:ring-gray-200">
 						<span className="sr-only">Open main menu</span>
@@ -23,7 +23,7 @@ function Navbar(props)
 				</div>
 				{
 					<div id="mobile-menu" className={(!mobileMenuOpen ? "hidden" : "") + " md:show md:flex md:flex-row flex-col md:ml-auto md:mt-0 mt-4"}>
-						<ul className="flex md:flex-row md:space-x-4 lg:space-x-8 flex-col w-full">
+						<ul className="flex md:flex-row md:space-x-2 lg:space-x-8 flex-col w-full">
 							{
 								elements && elements.map((value, index) => {
 									return (

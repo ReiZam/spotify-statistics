@@ -26,10 +26,9 @@ function Callback()
 					token_type: payload.data.token_type,
 					expires: Date.now() + payload.data.expires_in * 1000
 				};
-
-				auth.login(tokenObj, () => {
-					console.log("login")
-				});
+				
+				auth.login(tokenObj, () => {});
+				window.localStorage.removeItem("code_verifier");
 			}).catch((err) => {
 				console.log(err);
 			});

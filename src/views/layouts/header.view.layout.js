@@ -38,9 +38,7 @@ function Header(props)
 			link: "/",
 			external: false,
 			onClick: () => {
-				auth.logout(() => {
-					console.log("logout");
-				})
+				auth.logout(() => {})
 			}
 		}
 	];

@@ -5,7 +5,7 @@ import { useAuth } from "../../providers/auth.provider.js";
 import Spinner from '../global/spinner.component.js';
 
 // SERVICES
-import { SpotifyAgent } from '../../services/api/spotify.api.js';
+import { SpotifyAgent } from '../../services/spotify.service.js';
 
 function HomeStatusCard()
 {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Navigate, useLocation } from "react-router";
 import { useAuth } from "../providers/auth.provider";
-import { requestSpotifyAccessToken } from "../services/api/spotify.api";
+import { requestSpotifyAccessToken } from "../services/spotify.service.js";
 
 function useQuery()
 {

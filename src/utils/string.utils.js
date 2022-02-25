@@ -22,7 +22,13 @@ async function generateCodeChallenge(codeVerifier)
       .replace(/\//g, '_');
 }
 
+function getClassementPlace(classement)
+{
+	return (classement + (classement == 1 ? "st" : classement == 2 ? "nd" : ""));
+}
+
 export {
 	generateCodeChallenge,
-	generateRandomString
+	generateRandomString,
+	getClassementPlace
 };

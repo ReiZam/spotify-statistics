@@ -11,7 +11,7 @@ function TrackList(props)
 				tracks.items.map((value, index) => {
 					return (
 						<div key={index} className="mt-2 mt-2">
-							<TrackItem track={value}/>
+							<TrackItem classement={index+1} track={value}/>
 						</div>
 					)
 				})

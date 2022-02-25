@@ -1,6 +1,6 @@
 const queryString = require('query-string');
 const axios = require('axios');
-const {generateRandomString, generateCodeChallenge} = require('../../utils/string.utils.js');
+const {generateRandomString, generateCodeChallenge} = require('../utils/string.utils.js');
 
 const CLIENT_ID = "faebf503fbac43f2afcfa2807b956815";
 const REDIRECT_URI = "http://localhost:3000/callback";

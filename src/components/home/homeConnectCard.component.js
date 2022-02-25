@@ -8,7 +8,7 @@ function HomeConnectCard(props)
 				<p className="text-4xl font-bold text-spotify_text_color antialiased">Spotify</p>
 				<p className="text-lg font-thin mt-2.5 text-spotify_text_color antialiased">statistics</p>
 			</div>
-			<p className="font-medium py-4 text-spotify_text_color">Please sign in with your Spotify account to view your stats</p>
+			<p className="font-medium py-4 text-center text-spotify_text_color">Please sign in with your Spotify account to view your stats</p>
 			<a href={authorization_content.authorize_link}  onClick={() => {
 					window.localStorage.setItem("code_verifier", authorization_content.code_verifier);
 			}}>

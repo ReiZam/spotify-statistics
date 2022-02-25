@@ -14,11 +14,10 @@ import NotFound from './views/error/404.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/spotify.service.js";
 // PROVIDER
-import { RequireAuth, useAuth, AuthProvider } from './providers/auth.provider.js';
+import { RequireAuth, AuthProvider } from './providers/auth.provider.js';
 
 function App()
 {
-	let auth = useAuth();
 	const [authorization_content, setAuthorizationContent] = useState(null);
 
 	useEffect(() => {

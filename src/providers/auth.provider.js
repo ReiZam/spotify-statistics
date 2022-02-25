@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router";
 
 let AuthContext = React.createContext(null);
@@ -29,6 +29,16 @@ function useProvideAuth()
 function AuthProvider({children})
 {
 	let value = useProvideAuth();
+
+	useEffect(() => {
+		if (window.localStorage.getItem("token") != undefined)
+		{
+			var tokenObj = JSON.parse(window.localStorage.getItem("token"));
+			
+			if (tokenObj.expires > Date.now())
+				value.login(tokenObj, () => {});
+		}
+	}, []);
 
 	return (<AuthContext.Provider value={value}>{children}</AuthContext.Provider>);
 }

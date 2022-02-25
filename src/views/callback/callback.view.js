@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
 import { Navigate, useLocation } from "react-router";
 import { useAuth } from "../../providers/auth.provider";
 import { requestSpotifyAccessToken } from "../../services/api/spotify.api";

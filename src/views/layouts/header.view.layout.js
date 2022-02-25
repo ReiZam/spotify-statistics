@@ -26,21 +26,24 @@ function Header(props)
 			link: "/stats/artists",
 			external: false
 		},
-		!auth.user  ? {
+		(!auth.user ?
+		{
 			title: "LOGIN",
 			link: authorization_content.authorize_link,
 			external: true,
 			onClick: () => {
 				window.localStorage.setItem("code_verifier", authorization_content.code_verifier);
 			}
-		} : {
+		}
+		:
+		{
 			title: "LOGOUT",
 			link: "/",
 			external: false,
 			onClick: () => {
 				auth.logout(() => {})
 			}
-		}
+		})
 	];
 
 	return (

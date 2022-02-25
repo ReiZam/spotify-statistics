@@ -10,23 +10,25 @@ import Footer from './views/layouts/footer.view.layout.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/api/spotify.api.js";
 // PROVIDER
-import { RequireAuth, AuthProvider } from './providers/auth.provider.js';
+import { RequireAuth, useAuth, AuthProvider } from './providers/auth.provider.js';
 
 function App()
 {
+	let auth = useAuth();
 	const [authorization_content, setAuthorizationContent] = useState(null);
 
 	useEffect(() => {
 		generateAuthorizationContentSpotify().then((result) => {
 			setAuthorizationContent(result);
 		});
+		
 	}, []);
 
 	if (!authorization_content)
 		return (<h1>Loading...</h1>);
 
 	return (
-		<div className="bg-gray-100 h-screen w-screen">
+		<div className="bg-gray-100 h-screen">
 			<AuthProvider>
 				<Header authorization_content={authorization_content}/>
 				<Routes>

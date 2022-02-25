@@ -2,7 +2,7 @@
 
 A small website working with Spotify's API to see its most listened to artists, sounds and genres on the platform. The authentification has been realized with OAuth2 (with PKCE) so there is no need secret id.
 
-## Techs used
+### Techs used
  - **React**
  - **Tailwind CSS**
  - Flowbite

@@ -17,7 +17,6 @@ function TopTracks()
 		loadTop(auth.user.access_token, mode, "tracks", setTopTracks);
 	}, [mode]);
 
-
 	return (
 		<div className="relative container mx-auto lg:px-64 mt-8">
 			<div className="flex m-8 justify-center">

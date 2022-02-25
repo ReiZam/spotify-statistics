@@ -17,7 +17,10 @@ module.exports = {
 			spotify_red_active: "#a62d1f",
 			spotify_pink: "#f573a0",
 			spotify_pink_secondary: "#c95f84",
-			spotify_pink_active: "#ad5172"
+			spotify_pink_active: "#ad5172",
+			spotify_blue: "#509bf5",
+			spotify_blue_secondary: "#4686d4",
+			spotify_blue_active: "#3d78bf"
 		},
 		fontFamily: {
 			sans: ['Roboto', 'sans-serif']

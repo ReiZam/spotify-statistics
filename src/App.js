@@ -8,6 +8,7 @@ import Footer from './layouts/footer.layout.js';
 import Home from './views/home.view.js';
 import Callback from './views/callback.view.js';
 import TopTracks from './views/top/topTracks.view.js';
+import TopGenres from "./views/top/topGenres.view.js";
 import TopArtists from './views/top/topArtists.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/spotify.service.js";
@@ -39,6 +40,7 @@ function App()
 						<Route path="/callback" element={<Callback/>}/>
 						<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
 						<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
+						<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
 						{/* <Route path="*" element={<NotFound/>}/> */}
 					</Routes>
 					<Footer/>

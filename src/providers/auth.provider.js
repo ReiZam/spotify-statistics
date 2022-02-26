@@ -56,8 +56,18 @@ function RequireAuth({children})
 	return children;
 }
 
+function RequireNoAuth({children})
+{
+	let auth = useAuth();
+
+	if (auth.user)
+		return (<Navigate to="/" replace/>)
+	return children;
+}
+
 export {
 	RequireAuth,
+	RequireNoAuth,
 	useAuth,
 	AuthProvider
 };

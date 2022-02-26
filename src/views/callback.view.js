@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router";
 import { useAuth } from "../providers/auth.provider";
 import { requestSpotifyAccessToken } from "../services/spotify.service.js";
@@ -12,12 +12,14 @@ function useQuery()
 
 function Callback()
 {
+	let [status, setStatus] = useState({title: "Loading..."});
 	let query = useQuery();
 	let auth = useAuth();
 
 	useEffect(() => {
-		if (query.has("code"))
+		if (query.has("code") && query.has("state"))
 		{
+			setStatus({title: "Connecting", message: "Requesting Token to Spotify API..."})
 			requestSpotifyAccessToken(query.get("code")).then((payload) => {
 				const tokenObj = {
 					access_token: payload.data.access_token,
@@ -26,28 +28,25 @@ function Callback()
 					expires: Date.now() + payload.data.expires_in * 1000
 				};
 				
+				setStatus({title: "Connected", message: "You are now connected"});
 				auth.login(tokenObj, () => {});
 				window.localStorage.removeItem("code_verifier");
 			}).catch((err) => {
-				console.log(err);
+				setStatus({title: "An error has occurred...", message: err.response.data.error + ": " + err.response.data.error_description});
 			});
 		}
+		else if (query.has("error") && query.has("state"))
+			setStatus({title: "An error has occurred...", message: query.get("error")})
+		else
+			setStatus({title: "Wrong request...", message: "Please try to log in again."})
 	}, []);
 
-	if (auth.user)
-		return (<Navigate to="/" replace/>);
 	return (
 		<div className="relative h-screen">
 			<div className="container mx-auto lg:px-64 mt-8">
 				<div className="grid place-items-center shadow mx-2 rounded-3xl bg-white mx-auto py-8">
-					<p className="text-4xl font-bold text-spotify_text_color antialiased">{query.has("error") ? "An error has occurred..." : "Connecting..."}</p>
-					{
-						query.has("error") &&
-						<>
-							<p className="text-xl font-medium py-2 text-red-500">{query.get("error")}</p>
-							<p className="text-sm font-medium py-2 text-spotify_text_color">Please try to log in again.</p>
-						</>
-					}
+					<p className="text-4xl font-bold text-spotify_text_color antialiased">{status.title}</p>
+					{status.message && <p className="text-xl font-medium py-2 text-gray-500">{status.message}</p>}
 				</div>
 			</div>
 		</div>

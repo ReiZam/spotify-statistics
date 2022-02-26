@@ -25,8 +25,8 @@ function TopArtists()
 				<p className="text-3xl font-bold">TOP ARTISTS</p>
 			</div>
 			<TimeSelector mode={mode} setMode={setMode}
-				defaultClassName="bg-spotify_pink w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_pink_secondary active:spotify_pink_active text-white h-12 pl-6 pr-6"
-				activeClassName="bg-spotify_pink_secondary w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_pink_secondary active:spotify_pink_active text-white h-12 pl-6 pr-6"/>
+				defaultClassName="bg-spotify_pink w-full tracking-widest transition-colors text-xs md:text-sm active: hover:bg-spotify_pink_secondary active:spotify_pink_active text-white h-16 md:h-12 pl-6 pr-6"
+				activeClassName="bg-spotify_pink_secondary w-full tracking-widest transition-colors text-xs md:text-sm active: hover:bg-spotify_pink_secondary active:spotify_pink_active text-white h-16 md:h-12 pl-6 pr-6"/>
 			{!topArtists ?
 			<div className="flex mt-48 mb-32 justify-center">
 				<Spinner/>

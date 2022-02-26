@@ -24,8 +24,8 @@ function TopTracks()
 				<p className="text-3xl font-bold">TOP TRACKS</p>
 			</div>
 			<TimeSelector mode={mode} setMode={setMode}
-				defaultClassName="bg-spotify_red w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-12 pl-6 pr-6"
-				activeClassName="bg-spotify_red_secondary w-full tracking-widest transition-colors text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-12 pl-6 pr-6"/>
+				defaultClassName="bg-spotify_red w-full tracking-widest transition-colors text-xs md:text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-16 md:h-12 pl-6 pr-6"
+				activeClassName="bg-spotify_red_secondary w-full tracking-widest transition-colors text-xs md:text-sm active: hover:bg-spotify_red_secondary active:spotify_red_active text-white h-16 md:h-12 pl-6 pr-6"/>
 			{!topTracks ?
 			<div className="flex mt-48 mb-32 justify-center">
 				<Spinner/>

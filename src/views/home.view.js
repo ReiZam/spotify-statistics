@@ -23,9 +23,9 @@ function Home(props)
 				<HomeFadeTitles titles={["Explore your favorites songs", "Get a glimpse of your favorite artists", "Know your favorite music genres"]} description="You are able to see a classement of your most listened songs."/>
 			</div>
 			<div className="flex w-full justify-around mt-16 mb-12 py-8">
-				<HomeTopButton className="rounded-full tracking-widest transition-colors text-sm bg-spotify_purple active:bg-spotify_purple hover:bg-spotify_purple/75 font-bold text-white h-12 pl-6 pr-6" authorization_content={authorization_content} title="TOP ARTISTS" loggedLink={"/top/artists"}/>
-				<HomeTopButton className="rounded-full tracking-widest transition-colors text-sm bg-spotify_yellow active:bg-spotify_yellow hover:bg-spotify_yellow/75 font-bold text-white h-12 pl-6 pr-6" authorization_content={authorization_content} title="TOP ARTISTS" loggedLink={"/top/artists"}/>
-				<HomeTopButton className="rounded-full tracking-widest transition-colors text-sm bg-spotify_cyan active:bg-spotify_cyan hover:bg-spotify_cyan/75 font-bold text-white h-12 pl-6 pr-6" authorization_content={authorization_content} title="TOP GENRES" loggedLink={"/top/genres"}/>
+				<HomeTopButton className="rounded-full tracking-widest transition-colors text-xs md:text-sm bg-spotify_purple active:bg-spotify_purple hover:bg-spotify_purple/75 font-bold text-white h-12 pl-4 pr-4 md:pl-6 md:pr-6" authorization_content={authorization_content} title="TOP ARTISTS" loggedLink={"/top/artists"}/>
+				<HomeTopButton className="rounded-full tracking-widest transition-colors text-xs md:text-sm bg-spotify_yellow active:bg-spotify_yellow hover:bg-spotify_yellow/75 font-bold text-white h-12 pl-4 pr-4 md:pl-6 md:pr-6" authorization_content={authorization_content} title="TOP ARTISTS" loggedLink={"/top/artists"}/>
+				<HomeTopButton className="rounded-full tracking-widest transition-colors text-xs md:text-sm bg-spotify_cyan active:bg-spotify_cyan hover:bg-spotify_cyan/75 font-bold text-white h-12 pl-4 pr-4 md:pl-6 md:pr-6" authorization_content={authorization_content} title="TOP GENRES" loggedLink={"/top/genres"}/>
 			</div>
 		</div>
 	);

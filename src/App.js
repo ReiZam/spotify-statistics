@@ -24,11 +24,10 @@ function App()
 		generateAuthorizationContentSpotify().then((result) => {
 			setAuthorizationContent(result);
 		});
-		
 	}, []);
 
 	if (!authorization_content)
-		return (<h1>Loading...</h1>);
+		return (<div></div>);
 
 	return (
 			<div className="bg-gray-100 flex flex-col h-screen justify-between">

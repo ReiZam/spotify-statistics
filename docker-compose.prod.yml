@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  spotify-statistics-prod:
+    container_name: spotify-statistics-prod
+    image: spotify-statistics-prod
+    build:
+      dockerfile: Dockerfile.prod
+      context: .
+      args:
+        CLIENT_ID: ${CLIENT_ID}
+        REDIRECT_URI: ${REDIRECT_URI}
+    environment:
+      CLIENT_ID: ${CLIENT_ID}
+      REDIRECT_URI: ${REDIRECT_URI}
+    ports:
+      - 8055:8055

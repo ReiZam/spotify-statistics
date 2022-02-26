@@ -1,3 +1,5 @@
+const createHash = require("sha256-uint8array").createHash;
+
 function generateRandomString(length)
 {
     var result           = '';
@@ -11,15 +13,12 @@ function generateRandomString(length)
 
 async function generateCodeChallenge(codeVerifier)
 {
-    const digest = await crypto.subtle.digest(
-      'SHA-256',
-      new TextEncoder().encode(codeVerifier),
-    );
+	const digest = await createHash().update(new TextEncoder().encode(codeVerifier)).digest();
 
     return btoa(String.fromCharCode(...new Uint8Array(digest)))
-      .replace(/=/g, '')
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_');
+	.replace(/=/g, '')
+	.replace(/\+/g, '-')
+	.replace(/\//g, '_');
 }
 
 function getClassementPlace(classement)

@@ -14,4 +14,4 @@ services:
       CLIENT_ID: ${CLIENT_ID}
       REDIRECT_URI: ${REDIRECT_URI}
     ports:
-      - 8055:8055
+      - 8001:8001

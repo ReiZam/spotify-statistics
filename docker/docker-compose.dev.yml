@@ -5,8 +5,8 @@ services:
     container_name: spotify-statistics-dev
     image: spotify-statistics-dev
     build:
-      dockerfile: Dockerfile
-      context: .
+      dockerfile: ./docker/Dockerfile
+      context: ../
       args:
         - CLIENT_ID=${CLIENT_ID}
         - REDIRECT_URI=${REDIRECT_URI}

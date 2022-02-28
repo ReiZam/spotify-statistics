@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 // COMPONENTS
 import TimeSelector from "../../components/top/timeSelector.component.js";
 import ArtistList from '../../components/artists/artistList.component.js';
-import Spinner from "../../components/global/spinner.component.js";
+import Spinner from "../../components/spinner.component.js";
 // SERVICES
-import { loadTop } from "../../services/utils/spotify.utils.js";
+import { loadTop } from "../../utils/spotify.utils.js";
 // PROVIDERS
 import { useAuth } from "../../providers/auth.provider";
 

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/auth.provider.js";
 
 // SERVICES
-import { loadTop } from "../../services/utils/spotify.utils";
+import { loadTop } from "../../utils/spotify.utils";
 // COMPONENTS
-import Spinner from "../../components/global/spinner.component.js";
+import Spinner from "../../components/spinner.component.js";
 import TimeSelector from '../../components/top/timeSelector.component.js';
 import TrackList from '../../components/tracks/trackList.component.js';
 

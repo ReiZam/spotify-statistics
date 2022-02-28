@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../providers/auth.provider.js";
 
 // COMPONENTS
-import Spinner from '../global/spinner.component.js';
+import Spinner from '../spinner.component.js';
 
 // SERVICES
 import { SpotifyAgent } from '../../services/spotify.service.js';

@@ -1,4 +1,4 @@
-import { SpotifyAgent } from '../spotify.service.js'; 
+import { SpotifyAgent } from '../services/spotify.service.js'; 
 
 function getTimeRangeByMode(mode)
 {

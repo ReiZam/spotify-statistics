@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 // COMPONENT
-import Spinner from "../../components/global/spinner.component";
+import Spinner from "../../components/spinner.component";
 import TimeSelector from "../../components/top/timeSelector.component";
 import GenreList from '../../components/genres/genreList.component.js';
 // PROVIDERS
 import { useAuth } from "../../providers/auth.provider";
 // SERVICES
-import { loadTop, topArtistsToTopGenres } from "../../services/utils/spotify.utils";
+import { loadTop, topArtistsToTopGenres } from "../../utils/spotify.utils";
 
 function TopGenres()
 {

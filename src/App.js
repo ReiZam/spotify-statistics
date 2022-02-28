@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, } from "react-router";
 
 // LAYOUTS
-import Header from './layouts/header.layout.js';
-import Footer from './layouts/footer.layout.js';
+import Header from './components/layouts/header/header.layout.component.js';
+import Footer from './components/layouts/footer.layout.component.js';
 // VIEWS
 import Home from './views/home.view.js';
 import Callback from './views/callback.view.js';

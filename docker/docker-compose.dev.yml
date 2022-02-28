@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  spotify-statistics-dev:
+    container_name: spotify-statistics-dev
+    image: spotify-statistics-dev
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        - CLIENT_ID=${CLIENT_ID}
+        - REDIRECT_URI=${REDIRECT_URI}
+    environment:
+      CLIENT_ID: ${CLIENT_ID}
+      REDIRECT_URI: ${REDIRECT_URI}
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 3000:3000

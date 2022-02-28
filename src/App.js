@@ -14,7 +14,7 @@ import NotFound from './views/error/404.view.js';
 // SERVICES
 import { generateAuthorizationContentSpotify } from "./services/spotify.service.js";
 // PROVIDER
-import { RequireAuth, RequireNoAuth, AuthProvider } from './providers/auth.provider.js';
+import { RequireAuth, RequireNoAuth } from './providers/auth.provider.js';
 
 function App()
 {
@@ -31,20 +31,18 @@ function App()
 
 	return (
 			<div className="bg-gray-100 flex flex-col h-screen justify-between">
-				<AuthProvider>
-					<Header authorization_content={authorization_content}/>
-					<div className="bg-gray-100 mb-auto">
-						<Routes>
-							<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
-							<Route path="/callback" element={<RequireNoAuth><Callback/></RequireNoAuth>}/>
-							<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
-							<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
-							<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
-							<Route path="*" element={<NotFound/>}/>
-						</Routes>
-					</div>
-					<Footer/>
-				</AuthProvider>
+				<Header authorization_content={authorization_content}/>
+				<div className="bg-gray-100 mb-auto">
+					<Routes>
+						<Route index path="/" element={<Home authorization_content={authorization_content}/>}/>
+						<Route path="/callback" element={<RequireNoAuth><Callback/></RequireNoAuth>}/>
+						<Route path="/top/tracks" element={<RequireAuth><TopTracks/></RequireAuth>}/>
+						<Route path="/top/artists" element={<RequireAuth><TopArtists/></RequireAuth>}/>
+						<Route path="/top/genres" element={<RequireAuth><TopGenres/></RequireAuth>}/>
+						<Route path="*" element={<NotFound/>}/>
+					</Routes>
+				</div>
+				<Footer/>
 			</div>
 	);
 }

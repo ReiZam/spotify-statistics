@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router";
 
+// SERVICES
+import { requestSpotifyRefreshToken } from '../services/spotify.service.js';
+
 let AuthContext = React.createContext(null);
 
 function useProvideAuth()
@@ -35,8 +38,24 @@ function AuthProvider({children})
 		{
 			var tokenObj = JSON.parse(window.localStorage.getItem("token"));
 			
-			if (tokenObj.expires > Date.now())
-				value.login(tokenObj, () => {});
+			if (tokenObj.access_token && tokenObj.refresh_token && tokenObj.expires)
+			{
+				if (tokenObj.expires > Date.now())
+					value.login(tokenObj, () => {});
+				else
+				{
+					requestSpotifyRefreshToken(tokenObj.refresh_token).then((res) => {
+						const newTokenObj = {
+							access_token: res.data.access_token,
+							refresh_token: res.data.refresh_token,
+							token_type: res.data.token_type,
+							expires: Date.now() + res.data.expires_in * 1000
+						};
+
+						value.login(newTokenObj, () => {});
+					});
+				}
+			}
 		}
 	}, []);
 

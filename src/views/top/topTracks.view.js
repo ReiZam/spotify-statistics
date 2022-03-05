@@ -15,7 +15,7 @@ function TopTracks()
 	let auth = useAuth();
 
 	useEffect(() => {
-		loadTop(auth.user.access_token, mode, "tracks", setTopTracks);
+		loadTop(auth, mode, "tracks", setTopTracks);
 	}, [mode]);
 
 	return (

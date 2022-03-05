@@ -16,8 +16,6 @@ RUN npm i
 
 COPY . ./
 
-RUN ls -l *
-
 EXPOSE 3000
 
 CMD ["npm", "start"]

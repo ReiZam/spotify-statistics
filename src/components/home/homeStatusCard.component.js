@@ -6,6 +6,7 @@ import Spinner from '../spinner.component.js';
 
 // SERVICES
 import { SpotifyAgent } from '../../services/spotify.service.js';
+import { checkAndRequestRefreshToken } from '../../utils/spotify.utils.js';
 
 function HomeStatusCard()
 {
@@ -13,8 +14,10 @@ function HomeStatusCard()
 	let [profile, setProfile] = useState(null);
 
 	useEffect(() => {
-		SpotifyAgent.current(auth.user.access_token).then((result) => {
-			setProfile(result.data);
+		checkAndRequestRefreshToken(auth, (token) => {
+			SpotifyAgent.current(token.access_token).then((result) => {
+				setProfile(result.data);
+			});
 		});
 	}, [])
 

@@ -20,12 +20,12 @@ function Callback()
 		if (query.has("code") && query.has("state"))
 		{
 			setStatus({title: "Connecting", message: "Requesting Token to Spotify API..."})
-			requestSpotifyAccessToken(query.get("code")).then((payload) => {
+			requestSpotifyAccessToken(query.get("code")).then((res) => {
 				const tokenObj = {
-					access_token: payload.data.access_token,
-					refresh_token: payload.data.refresh_token,
-					token_type: payload.data.token_type,
-					expires: Date.now() + payload.data.expires_in * 1000
+					access_token: res.data.access_token,
+					refresh_token: res.data.refresh_token,
+					token_type: res.data.token_type,
+					expires: Date.now() + res.data.expires_in * 1000
 				};
 				
 				setStatus({title: "Connected", message: "You are now connected"});

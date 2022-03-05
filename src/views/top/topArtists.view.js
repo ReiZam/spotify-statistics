@@ -16,7 +16,7 @@ function TopArtists()
 	let [topArtists, setTopArtists] = useState(null);
 
 	useEffect(() => {
-		loadTop(auth.user.access_token, mode, "artists", setTopArtists);
+		loadTop(auth, mode, "artists", setTopArtists);
 	}, [mode]);
 
 	return (

@@ -52,6 +52,24 @@ function requestSpotifyAccessToken(code)
 	return (axios(authOptions));
 }
 
+function requestSpotifyRefreshToken(refresh_token)
+{
+	var authOptions = {
+		method: "POST",
+		baseURL: SPOTIFY_TOKEN_URI,
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+		},
+		data: queryString.stringify({
+			client_id: CLIENT_ID,
+			refresh_token: refresh_token,
+			grant_type: "refresh_token"
+		}),
+	};
+
+	return (axios(authOptions));
+}
+
 async function post(url, access_token, data)
 {
 	var options = {
@@ -89,9 +107,9 @@ const SpotifyAgent =
 	top: (access_token, top_item, query) => get("/me/top/" + top_item + "/" + query, access_token)
 };
 
-
 export {
 	generateAuthorizationContentSpotify,
 	requestSpotifyAccessToken,
+	requestSpotifyRefreshToken,
 	SpotifyAgent
 };
